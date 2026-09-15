@@ -69,8 +69,8 @@
       "bytes": 1179
     },
     "README.md": {
-      "sha256": "8f6682823167e4ef578697dfde0c1dc06a6334b178e049e218aff0eb961f7a1b",
-      "bytes": 6449
+      "sha256": "9471ea6e1f77417a9a5e0b2b0827ae0e8b6e95acc50bc147e6c7f31dd9a27db2",
+      "bytes": 6385
     },
     "reproduce/build_assets.py": {
       "sha256": "bf65e65aa7581d60d18a1e21a2ef58e1cec3f86a022055d6d6d3535209f17c16",
