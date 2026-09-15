@@ -1,0 +1,27 @@
+name: standalone CPU tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install ".[plot,test]"
+      - run: python -m pytest
+      - run: python examples/spin_boson.py --steps 8
+      - run: python reproduce/replot.py --output-dir outputs/paper
+  notebooks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install ".[notebook]"
+      - run: python examples/check_notebooks.py --output-dir outputs/notebooks

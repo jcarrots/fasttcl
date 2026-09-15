@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/A-Beta-in-Iceland/TCL6-Numerical/schema/hr-v1.schema.json",
+  "title": "Hadamard-reduced TCL6 record",
+  "description": "One canonical HR001--HR124 survivor produced by the CC-to-HR simplification.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "id",
+    "equation_label",
+    "representation",
+    "coefficient",
+    "expression",
+    "derived",
+    "lineage"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "hr-v1.schema.json"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^hr-[0-9]{3}$"
+    },
+    "equation_label": {
+      "type": "string",
+      "pattern": "^HR[0-9]{3}$"
+    },
+    "representation": {
+      "const": "hadamard_reduced"
+    },
+    "coefficient": {
+      "type": "integer",
+      "enum": [-2, -1, 1]
+    },
+    "expression": {
+      "$ref": "https://github.com/A-Beta-in-Iceland/TCL/schema/tcl6-v1.schema.json#/$defs/node"
+    },
+    "derived": {
+      "$ref": "#/$defs/derived"
+    },
+    "lineage": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/lineage"
+      }
+    }
+  },
+  "$defs": {
+    "derived": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["normalized_shorthand", "latex"],
+      "properties": {
+        "normalized_shorthand": {
+          "type": "string",
+          "minLength": 1
+        },
+        "latex": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_branch_id", "density_path", "coefficient"],
+      "properties": {
+        "source_branch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "density_path": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coefficient": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

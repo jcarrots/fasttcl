@@ -1,0 +1,57 @@
+{
+  "title": "Three-boson relaxation in a structured bath",
+  "Omega": 1.0,
+  "lambda_squared": 0.05,
+  "hamiltonian": "H_S=(Omega/2)*sigma_x",
+  "coupling_operator": "A=sigma_z/2",
+  "unit_spectrum": "J_B(omega)=2*Omega*j(omega/Omega)",
+  "physical_spectrum": "J_lambda=lambda^2*J_B",
+  "correlation_convention": "C_B(t)=(1/2)*integral_0^infinity J_B(omega)*exp(-i*omega*t) d omega",
+  "band": {
+    "shape": "j(u)=8/(3W)*sin(pi*(u-u_minus)/W)^4 within the band and zero outside",
+    "u_minus": 0.2,
+    "u_plus": 0.4666666666666667,
+    "width": 0.26666666666666666,
+    "integral_j": 1.0
+  },
+  "temperature": 0.0,
+  "initial_bath": "vacuum",
+  "initial_system": "excited energy state |+x><+x|",
+  "rotating_wave_approximation": false,
+  "grid": {
+    "rate_dt": 0.01,
+    "rate_t_end": 360.0,
+    "display_rate_start": 120.0,
+    "density_generator_dt": 0.01,
+    "density_generator_samples": 140001,
+    "density_dt": 0.02,
+    "density_samples": 70001,
+    "density_t_end": 1400.0,
+    "phase_space_samples_per_unit": 4096
+  },
+  "quadrature": {
+    "Gamma": "cumulative trapezoid",
+    "TCL4": "composite trapezoid",
+    "TCL6": "nested composite trapezoid",
+    "golden_rule_Gauss_Legendre_nodes_per_variable": 512
+  },
+  "golden_rule": {
+    "formula": "gamma_3b=c3*lambda^6*Omega",
+    "c3": 18.035263869970187,
+    "rate": 0.002254407983746274,
+    "population_anchor_time": 240.0,
+    "population_anchor_value": 0.5689042870842058
+  },
+  "phase_space_display": "one/two/three are j, j*j, j*j*j divided by their respective maxima; plot vertical offsets 2,1,0",
+  "array_semantics": {
+    "lambda_squared": 0.05,
+    "stored_rates": "Rates extracted from physical cumulative lambda^2 K2 + lambda^4 K4 + lambda^6 K6, through the indicated order",
+    "golden_rule_rate": "gamma_3b=c3*lambda^6*Omega; existing rate values are unchanged"
+  },
+  "caveats": [
+    "Black population curve uses the independent leading T-matrix rate anchored to the TCL6 population at Omega*t=240; it is not an independent full trajectory.",
+    "The kinetic population is NaN before the anchor time, intentionally suppressing that unmodeled interval in the plot.",
+    "Raw TCL4 can be transiently nonpositive. No population curve is projected or repaired.",
+    "Normalized phase-space curves identify energy support, not the complete transition rate."
+  ]
+}

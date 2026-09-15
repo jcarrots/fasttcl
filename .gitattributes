@@ -1,0 +1,2 @@
+# Preserve exact bytes for the release manifest and scientific input hashes.
+* -text

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/A-Beta-in-Iceland/TCL/schema/tcl6-v1.schema.json",
+  "title": "TCL6 Appendix F term record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "id", "representation", "ordinal", "equation_label", "equation_term_index", "coefficient", "correlation_pairs", "expression", "source", "derived"],
+  "properties": {
+    "$schema": {"const": "tcl6-v1.schema.json"},
+    "schema_version": {"const": "1.0.0"},
+    "id": {"type": "string", "pattern": "^(cum-[0-9]{3}|had-F[0-9]{3})$"},
+    "representation": {"enum": ["cumulative", "hadamard"]},
+    "ordinal": {"type": "integer", "minimum": 1},
+    "equation_label": {"type": "string", "pattern": "^F[0-9]+$"},
+    "equation_term_index": {"type": "integer", "minimum": 1},
+    "coefficient": {"type": "integer", "enum": [-1, 1]},
+    "correlation_pairs": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/correlation_pair"}},
+    "expression": {"$ref": "#/$defs/node"},
+    "source": {"$ref": "#/$defs/source"},
+    "derived": {"$ref": "#/$defs/derived"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"representation": {"const": "cumulative"}}},
+      "then": {
+        "properties": {
+          "id": {"pattern": "^cum-[0-9]{3}$"},
+          "coefficient": {"const": 1},
+          "source": {"properties": {"workbook": {"const": "TCL (no annotation).xlsx"}, "sheet": {"const": "cumulative correlation terms"}}}
+        }
+      },
+      "else": {
+        "properties": {
+          "id": {"pattern": "^had-F[0-9]{3}$"},
+          "equation_term_index": {"const": 1},
+          "source": {
+            "required": ["pipeline_row_id", "publication_order_file", "publication_order_line", "correlation", "bounds", "signed_latex"],
+            "properties": {"workbook": {"const": "Excel to LaTeX/Cancellations_splits_TCL6.xlsx"}, "sheet": {"const": "Sheet1"}}
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "correlation_pair": {
+      "type": "object", "additionalProperties": false, "required": ["left", "right"],
+      "properties": {"left": {"type": "string", "pattern": "^[0-5]$"}, "right": {"type": "string", "pattern": "^[0-5]$"}}
+    },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository_commit", "workbook", "sheet", "workbook_row", "pdf_page", "legacy_shorthand"],
+      "properties": {
+        "repository_commit": {"const": "37a411bfb9d94df920e0ace276279b856eb3c917"},
+        "workbook": {"type": "string", "minLength": 1},
+        "sheet": {"type": "string", "minLength": 1},
+        "workbook_row": {"type": "integer", "minimum": 2},
+        "pipeline_row_id": {"type": "integer", "minimum": 0},
+        "publication_order_file": {"const": "Excel to LaTeX/Grouped_Split_ReducedEqns_v4.txt"},
+        "publication_order_line": {"type": "integer", "minimum": 1},
+        "pdf_page": {"type": "integer", "minimum": 30, "maximum": 34},
+        "correlation": {"type": "string", "pattern": "^(<[0-5][0-5]>){3}$"},
+        "bounds": {"type": "string", "minLength": 1},
+        "signed_latex": {"type": "string", "pattern": "^[+-]"},
+        "legacy_shorthand": {"type": "string", "minLength": 1}
+      }
+    },
+    "derived": {
+      "type": "object", "additionalProperties": false, "required": ["normalized_shorthand", "latex"],
+      "properties": {"normalized_shorthand": {"type": "string", "minLength": 1}, "latex": {"type": "string", "minLength": 1}}
+    },
+    "node": {
+      "oneOf": [
+        {"$ref": "#/$defs/sum"},
+        {"$ref": "#/$defs/ordered_product"},
+        {"$ref": "#/$defs/commutator"},
+        {"$ref": "#/$defs/operator"},
+        {"$ref": "#/$defs/density_operator"},
+        {"$ref": "#/$defs/hadamard"},
+        {"$ref": "#/$defs/kernel"},
+        {"$ref": "#/$defs/time_expression"},
+        {"$ref": "#/$defs/scalar"}
+      ]
+    },
+    "sum": {
+      "type": "object", "additionalProperties": false, "required": ["type", "terms"],
+      "properties": {"type": {"const": "sum"}, "terms": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/node"}}}
+    },
+    "ordered_product": {
+      "type": "object", "additionalProperties": false, "required": ["type", "factors"],
+      "properties": {"type": {"const": "ordered_product"}, "factors": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/node"}}}
+    },
+    "commutator": {
+      "type": "object", "additionalProperties": false, "required": ["type", "left", "right"],
+      "properties": {"type": {"const": "commutator"}, "left": {"$ref": "#/$defs/node"}, "right": {"$ref": "#/$defs/node"}}
+    },
+    "operator": {
+      "type": "object", "additionalProperties": false, "required": ["type", "label"],
+      "properties": {"type": {"const": "operator"}, "label": {"type": "string", "pattern": "^(0|[1-5]|a|b)$"}}
+    },
+    "density_operator": {
+      "type": "object", "additionalProperties": false, "required": ["type", "symbol"],
+      "properties": {"type": {"const": "density_operator"}, "symbol": {"const": "rho"}}
+    },
+    "hadamard": {
+      "type": "object", "additionalProperties": false, "required": ["type", "left", "right"],
+      "properties": {"type": {"const": "hadamard"}, "left": {"$ref": "#/$defs/node"}, "right": {"$ref": "#/$defs/node"}}
+    },
+    "kernel": {
+      "type": "object", "additionalProperties": false, "required": ["type", "family", "transpose", "arguments"],
+      "properties": {
+        "type": {"const": "kernel"},
+        "family": {"enum": ["Gamma", "DeltaGamma"]},
+        "transpose": {"type": "boolean"},
+        "arguments": {"type": "array", "minItems": 1, "maxItems": 2, "items": {"$ref": "#/$defs/time_expression"}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"family": {"const": "Gamma"}}},
+          "then": {"properties": {"arguments": {"minItems": 1, "maxItems": 1}}},
+          "else": {"properties": {"arguments": {"minItems": 2, "maxItems": 2}}}
+        }
+      ]
+    },
+    "time_expression": {
+      "type": "object", "additionalProperties": false, "required": ["type", "terms"],
+      "properties": {"type": {"const": "time_expression"}, "terms": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/time_term"}}}
+    },
+    "time_term": {
+      "type": "object", "additionalProperties": false, "required": ["symbol", "coefficient"],
+      "properties": {"symbol": {"enum": ["0", "t", "t_a", "t_b"]}, "coefficient": {"type": "integer", "enum": [-1, 1]}}
+    },
+    "scalar": {
+      "type": "object", "additionalProperties": false, "required": ["type", "value"],
+      "properties": {"type": {"const": "scalar"}, "value": {"type": "integer"}}
+    }
+  }
+}

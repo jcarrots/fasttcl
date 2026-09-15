@@ -1,0 +1,913 @@
+{
+  "schema": "tcl6-paper-figure-reproduction-v1",
+  "source_root": "canonical TCL6 Paper repository",
+  "scope": "Replot approved stored numerical results for Figures 3-6; no simulation or benchmark rerun",
+  "source_path_base": "Paths under source_inputs are relative to the canonical paper repository, and are provenance only at replot time.",
+  "font_policy": "Bundled Matplotlib DejaVu Sans, including mathtext; no external fonts or LaTeX required",
+  "physical_values_recomputed": false,
+  "plotted_observables_extracted": true,
+  "source_inputs": {
+    "paper-data/figure-style/render_examples_1_3.py": {
+      "sha256": "c5f23dbf3da0a8aa3e4d993998b054266ee5d1b40564b690fdd853760025586a",
+      "bytes": 8660
+    },
+    "paper-data/figure-style/render_example_2.py": {
+      "sha256": "6f55ecc7baf174a5ca2978ba73603c31ddfa46cc0f1da0be2782004d57e08887",
+      "bytes": 4254
+    },
+    "paper-data/figure-style/render_all.py": {
+      "sha256": "8b7e51b689d552738706d7aa58679bf03b9bc9398d9d64678f283a2f60b6aa59",
+      "bytes": 5174
+    },
+    "paper-data/figure-style/provenance.json": {
+      "sha256": "2c59cece33a2fa92c722c7edd03ef672a539d62305fff0dc4d8b5cccfa0eccf0",
+      "bytes": 3736
+    },
+    "figures/corrected-term-direct-vs-optimized-ohmic-manifest.json": {
+      "sha256": "6844112a9a364221431f5e227e969a4f6482e8db7f6b07fba200e2c8f5aabf40",
+      "bytes": 2864
+    },
+    "paper-data/figure-style/term-verification.npz": {
+      "sha256": "5a843bebab7fcd083c8b138f8e8897391a086b62369aa5e12e7ad0c09cc1a6eb",
+      "bytes": 3895968
+    },
+    "paper-data/runtime-scaling/phoenix-h012-k6-scaling-through-nt25.csv": {
+      "sha256": "a26f585b4d8841eaf0f88d171c6859a1227ca44ec4bdbaf99f3e5e8bd627fa2e",
+      "bytes": 10336
+    },
+    "paper-data/runtime-scaling/kernel-summary.csv": {
+      "sha256": "4f1423ec60555e5d16c18ca32ebc6f908f00d109dd41baaa12525925c750ee20",
+      "bytes": 7488
+    },
+    "paper-data/runtime-scaling/benchmark-setup.json": {
+      "sha256": "a56ac6e6d45c037191ed084efa37d61f9a7d87402fa0870b4dada8b01996f94a",
+      "bytes": 3498
+    },
+    "paper-data/runtime-scaling/provenance.json": {
+      "sha256": "d45f843747610ff829c283880a063926e39acd3cbcd873d37157f0b69ca7bc0e",
+      "bytes": 2654
+    },
+    "paper-data/density-comparison/tcl-reference-report.json": {
+      "sha256": "38ddcaf114d46ea092ba0d1436c8cbe3a09f9a27bf51162b8f514a4c8ed01d97",
+      "bytes": 26573
+    },
+    "paper-data/density-comparison/tempo-provenance.json": {
+      "sha256": "4291bf51461a2ac81f697c810882e70fe96178d240b2c36d377982ebdfef6258",
+      "bytes": 3059
+    },
+    "paper-data/density-comparison/tcl-reference.npz": {
+      "sha256": "8f580773fd075969b4d161d145cd01384fa395a603553e7d17779a334b577145",
+      "bytes": 5383367
+    },
+    "paper-data/density-comparison/unbiased/trajectories.npz": {
+      "sha256": "93ede00d99f4f2d87babd1dd9fe9fda7c898aacd1d3a51593149b7c6cda32552",
+      "bytes": 119961
+    },
+    "paper-data/density-comparison/biased/trajectories.npz": {
+      "sha256": "977f28cba937efa168d94e07c070bb297901213429863044d9e8e2f07d2a08ba",
+      "bytes": 121099
+    },
+    "paper-data/figure-style/structured-band-report.json": {
+      "sha256": "5fcf523b6d1ef51338b2645914b6f827045242b1f140eda6e8f543f67560e31d",
+      "bytes": 68187
+    },
+    "paper-data/structured-three-boson/provenance.json": {
+      "sha256": "9924d2aa48891cc34c9f538dce03536ca2c0134f88685303f6d57229d036310b",
+      "bytes": 3012
+    },
+    "paper-data/figure-style/structured-band-three-boson.npz": {
+      "sha256": "de0e12e54f0dfc3c08e98277ec0c08742d8f39cee68a088720d302baf7b34abe",
+      "bytes": 22449082
+    }
+  },
+  "figures": {
+    "figure3": {
+      "data": "data/figure3.npz",
+      "sha256": "67f7e7ad969ab6d1f79fcaaa68005c6780cf93700e5b62c857af414d0a491d3e",
+      "bytes": 56333,
+      "parameters": "data/figure3.json",
+      "parameters_sha256": "13b18206c722487c0a0008f06bcc1e8e195588a580e02d8312a31f623fa8d94e",
+      "source_inputs": [
+        "paper-data/figure-style/term-verification.npz",
+        "figures/corrected-term-direct-vs-optimized-ohmic-manifest.json",
+        "paper-data/figure-style/provenance.json"
+      ],
+      "transformation": "Identical Frobenius-norm and relative-error operations to the approved renderer. All plotted samples retained; unused generator matrices omitted.",
+      "arrays": {
+        "times": {
+          "shape": [
+            1024
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "12ff9c509c31416ee37bf8b1bc33fbbac1576fe4696261439857401583ae1326"
+        },
+        "direct_times": {
+          "shape": [
+            20
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "c731f45de3ae0924d66e4955937abf3371035ca4ca6b5b82eea807842b16a161"
+        },
+        "direct_indices": {
+          "shape": [
+            20
+          ],
+          "dtype": "int64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "4120b8f2303893197d2b2a16a2a52276f5e7d4530bd02f87f3fb3cf3fec25ef2"
+        },
+        "HR065_direct_norm": {
+          "shape": [
+            20
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "42988daaca7c6e92306b607acd4918e6b56c364765263356db6b211082f727a6"
+        },
+        "HR065_reduced_norm": {
+          "shape": [
+            1024
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "aaa8096d6dbc79e91574043f7f0a6a14103ffddd1fbdfd16c9a982ac029e6922"
+        },
+        "HR065_error_times": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "21c469d4f01d9f0741e9cee6fc162898c35a4188e7ea5a8b9f465b542b4000ca"
+        },
+        "HR065_relative_error": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "bbb47cdebd8782316f3447c85cf9f08a6f4a222b6129ccd6107bd6e9522abcc7"
+        },
+        "HR067_direct_norm": {
+          "shape": [
+            20
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "c30788d34a9d147fcca241eacbd0dd7ebb948ea71ff94be5aee38ee5dfe4d518"
+        },
+        "HR067_reduced_norm": {
+          "shape": [
+            1024
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "d5258af123a4c8f51ae97e2c05947e6c16ee8f2aa3ed2ae2353ff7d26e9af94e"
+        },
+        "HR067_error_times": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "21c469d4f01d9f0741e9cee6fc162898c35a4188e7ea5a8b9f465b542b4000ca"
+        },
+        "HR067_relative_error": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "936e070dd6b3f5adf2c5b718d73ba154721ae009fbc4d1c2fb68d1e8a01e2a72"
+        },
+        "HR076_direct_norm": {
+          "shape": [
+            20
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "fd5a64db8969ef51379b941ed0eecadaa59d13524ef18636f8341903fa65e753"
+        },
+        "HR076_reduced_norm": {
+          "shape": [
+            1024
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "8fefb5e8cce58e3dc73a35219d48eb91721868f4b12daad56358ecac45858e7d"
+        },
+        "HR076_error_times": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "21c469d4f01d9f0741e9cee6fc162898c35a4188e7ea5a8b9f465b542b4000ca"
+        },
+        "HR076_relative_error": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "eebb7e02b3f59e5db04fb87d6d896555495a7f72c2a1324109fa5a05af62739b"
+        },
+        "HR080_direct_norm": {
+          "shape": [
+            20
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "1c54d644df29a2f8e67e51dab80ba3be82fc781e8edea8168250eb9638cc825e"
+        },
+        "HR080_reduced_norm": {
+          "shape": [
+            1024
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "4d6ab50c7bc6d5f8d3a2722b19cfaf4e60d3b8f8666e2f5d6e9c7471e6b2aab6"
+        },
+        "HR080_error_times": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "21c469d4f01d9f0741e9cee6fc162898c35a4188e7ea5a8b9f465b542b4000ca"
+        },
+        "HR080_relative_error": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "7397f225ce1005df786935ab6c16b7ef41cab4c04d2edb63c5ac6f1239401529"
+        },
+        "HR017_direct_norm": {
+          "shape": [
+            20
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "ab1d7ae095506848aadd223c5c22351356a5596d4f2b109f48d664a08304d48a"
+        },
+        "HR017_reduced_norm": {
+          "shape": [
+            1024
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "b35d6912066d077e42b38e9c93c2bc4ce95928eafe34a88a07439c95ddf26d2a"
+        },
+        "HR017_error_times": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "21c469d4f01d9f0741e9cee6fc162898c35a4188e7ea5a8b9f465b542b4000ca"
+        },
+        "HR017_relative_error": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "4b0d30ff977acc57db4627330abcff4282f4864d873b5cb48cc6431f99a79d69"
+        },
+        "HR032_direct_norm": {
+          "shape": [
+            20
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "dba1488a118cf8594e51277857a74dbd1ef45c55efe636731341e0a85f85550f"
+        },
+        "HR032_reduced_norm": {
+          "shape": [
+            1024
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "8c71baca01c66a2a1cf459b78f99f8f0d79a4ce2d55072808ce86b6a5968fa01"
+        },
+        "HR032_error_times": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "21c469d4f01d9f0741e9cee6fc162898c35a4188e7ea5a8b9f465b542b4000ca"
+        },
+        "HR032_relative_error": {
+          "shape": [
+            19
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "4c1e86cca40db52509c0395309b2ff4139ddf8fd9ca99a9f6bbc2be163b0a332"
+        }
+      }
+    },
+    "figure4": {
+      "data": "data/figure4.npz",
+      "sha256": "dd91e99f2d6836f7e56f8800a2f92024922cf953cfba2d48dd7cf8ac4e010e6d",
+      "bytes": 4534,
+      "parameters": "data/figure4.json",
+      "parameters_sha256": "8c400a0f61b7db20965870ef06628dd4e063a6b1b4779b22cf5c149760fff390",
+      "source_inputs": [
+        "paper-data/runtime-scaling/phoenix-h012-k6-scaling-through-nt25.csv",
+        "paper-data/runtime-scaling/kernel-summary.csv",
+        "paper-data/runtime-scaling/benchmark-setup.json",
+        "paper-data/runtime-scaling/provenance.json"
+      ],
+      "transformation": "Copy all 72 displayed timing/guide values and the 54 kernel MADs. Omit operational paths, job identifiers, and unplotted larger grids.",
+      "arrays": {
+        "H0_nt": {
+          "shape": [
+            18
+          ],
+          "dtype": "int64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "0740e2dc4ceb8b39d67bc7e09975df542737df6317dcb868173651f016b7bee4"
+        },
+        "H0_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "f16fd6513675bba7fd477d12dda19a5e75045e4c7082018765be94a01872215f"
+        },
+        "H0_guide_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "a907875ce16b691b97147492220f7b3fc675884435d3fc524c98fbd43d87fec2"
+        },
+        "H0_mad_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "3c600e990b3ccd64a3a1790b0b6c8f00fca724858eb125f7700cc71ac1690c09"
+        },
+        "H1_nt": {
+          "shape": [
+            18
+          ],
+          "dtype": "int64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "0740e2dc4ceb8b39d67bc7e09975df542737df6317dcb868173651f016b7bee4"
+        },
+        "H1_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "5e9dbf60a3637643f5533862a05faab4681b46313eb388198d8574b913da0bc9"
+        },
+        "H1_guide_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "faa70a1b5d2c02dcb185bd0d7ecd910edba12de58f5bb44680b341c3aee6ce47"
+        },
+        "H1_mad_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "6d484bed9f802068a7bcaf41c3a873dfba1a3850180ba6a2ee49e5ca794f0ad4"
+        },
+        "H2_nt": {
+          "shape": [
+            18
+          ],
+          "dtype": "int64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "0740e2dc4ceb8b39d67bc7e09975df542737df6317dcb868173651f016b7bee4"
+        },
+        "H2_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "c2be9d2984c6cdb5e24a0b1425317e1d3dfc791cacf3d15e92aa6c0b2a9266e1"
+        },
+        "H2_guide_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "fb4256d90ae3a6fafb358de3ae57d972192f9087b67b4af8a87fc2d38086f35c"
+        },
+        "H2_mad_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "161a140fe951c38b54dac436b82907c3517cf5d4a50a0f7fde72374c8b26c9d8"
+        },
+        "K6_nt": {
+          "shape": [
+            18
+          ],
+          "dtype": "int64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "0740e2dc4ceb8b39d67bc7e09975df542737df6317dcb868173651f016b7bee4"
+        },
+        "K6_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "1a1eea806a3e1bc46942fc257b73ee6223f8aa9488cbb116d3c088d9b99a7b2b"
+        },
+        "K6_guide_seconds": {
+          "shape": [
+            18
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "041b6562545445bf6bcddce86826ba7e54ccc044afc929372a2ea7de857a1177"
+        }
+      }
+    },
+    "figure5": {
+      "data": "data/figure5.npz",
+      "sha256": "916434c1ff4dc80efe8c1fd4c65322ccebf577fc1999f68f7992a37f4de0ead6",
+      "bytes": 1960953,
+      "parameters": "data/figure5.json",
+      "parameters_sha256": "9d2a2cc9b0eb145bcd5844713c3f9959ec9ef262d1a0e5dccadaa870e87bfaef",
+      "source_inputs": [
+        "paper-data/density-comparison/tcl-reference.npz",
+        "paper-data/density-comparison/tcl-reference-report.json",
+        "paper-data/density-comparison/tempo-provenance.json",
+        "paper-data/density-comparison/unbiased/trajectories.npz",
+        "paper-data/density-comparison/biased/trajectories.npz"
+      ],
+      "transformation": "Apply exactly the approved renderer's real-entry extraction, stride-10 coincident-grid comparison, and full-matrix Frobenius norms. Preserve all plotted samples. No state correction, interpolation, or coupling rescaling.",
+      "arrays": {
+        "unbiased_tcl_times": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "aea803625fcaba5c50fea2c7e35d861b3bb95e8c5dc0a2345e58eebae5765ee3"
+        },
+        "unbiased_tempo_times": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "2c0cc6774d44d038698fcc1600d9be32b97fe960bf4e110125f65cdd6e73bb89"
+        },
+        "unbiased_tempo_rho00": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "9400b3faf3bd310a93eb2afec4219d7c17fc62e08470eaa0212ffd96bd5e415e"
+        },
+        "unbiased_tempo_rho01": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "3786697ed2de63cd5fb3d970d1923538237e26f520bd5ac4f69d34ab73620432"
+        },
+        "unbiased_tcl2_rho00": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "9a2cf30d327afed4eaee04b8d25cedff3047fc28bc5a4a9a0efea228458d6a01"
+        },
+        "unbiased_tcl2_rho01": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "519cd9a215823c652f23d820166ecc1ebd0c2951abc888787522e55c63aed167"
+        },
+        "unbiased_tcl2_tempo_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "8b2cdf28bc235cdff82ef372d8e21c065582d292a34893e14d8088fed137b00e"
+        },
+        "unbiased_tcl4_rho00": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "f9ec7ebba290155bd0770387524fce4b8774ac6d2f77b8f8602ecbe239dd9c1c"
+        },
+        "unbiased_tcl4_rho01": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "d524abe26d56cc91b5584b0527e105bf24e7ddd97a9ae6c719720b1ab76a3336"
+        },
+        "unbiased_tcl4_tempo_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "9b7b3ed88129a6327fb523e8e0298b5124fc29c4f38f4e4e523134742e790d10"
+        },
+        "unbiased_tcl6_rho00": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "4400776bae7d7595eec27393c7343893932a3139ca6df3215c8a09c1fde6c53d"
+        },
+        "unbiased_tcl6_rho01": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "195e3b34dae4cd49db24ad427de7c30476ace51ef572203e2eeefd768428edd7"
+        },
+        "unbiased_tcl6_tempo_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "81832519429b663bcf01fcc599b1d9a1d91d203661002aa9ac450b7dd9f77a40"
+        },
+        "unbiased_tcl6_tcl4_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "da24c029d3190f31c1c3d55c348de5af749698e43c35086759eca55c9d53578e"
+        },
+        "biased_tcl_times": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "aea803625fcaba5c50fea2c7e35d861b3bb95e8c5dc0a2345e58eebae5765ee3"
+        },
+        "biased_tempo_times": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "2c0cc6774d44d038698fcc1600d9be32b97fe960bf4e110125f65cdd6e73bb89"
+        },
+        "biased_tempo_rho00": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "04527913476cb5b4597cfe992775ced16a5c359e67bd5379417d8cbfdd3165e7"
+        },
+        "biased_tempo_rho01": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "5f2649a22280200701f73e14a836adfde7ff9ec335e98f87d52de15220963269"
+        },
+        "biased_tcl2_rho00": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "55c39905cdf73910f67556015fdd878ef2d0c5e411c5959a5845eb32fd7edf70"
+        },
+        "biased_tcl2_rho01": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "8afc1c0469486f7d3e366d77157c0476500c56b5470e6eae8f61b8a175e8bf01"
+        },
+        "biased_tcl2_tempo_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "a1bb489b65ab9a6df93f3acc75140952a94544c644ac85287a70158eb4827680"
+        },
+        "biased_tcl4_rho00": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "c5f13f758ae02c065124bad96860cc4937f2a81f1b12608637e088ac7f6a1827"
+        },
+        "biased_tcl4_rho01": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "826ded3b4eddc928c93b8b6150c38889f66f62a5afb51bac4ee64e5a106fba5d"
+        },
+        "biased_tcl4_tempo_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "b1449c445e28ad5afdb3093cdcd7deaebce95b1ca0b3e2f1f41e900636487ac2"
+        },
+        "biased_tcl6_rho00": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "0c854105b041ab976d15b566fc897352103ad70b020c1f78be5178a0bb26e6c2"
+        },
+        "biased_tcl6_rho01": {
+          "shape": [
+            20001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "0abdf9ef954a38af2f69e082a5ba0e099d87ef0a065b9c65225e746bf71f6053"
+        },
+        "biased_tcl6_tempo_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "e0e57cd38adeec7c2fe1cadb55f35ad4e34b3d94e14e433e0f420aa9178cd337"
+        },
+        "biased_tcl6_tcl4_distance": {
+          "shape": [
+            2001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "e5381a3390a5ae415de7b26cf408a6f6594a4027255298ae34bed84c7b320de4"
+        }
+      }
+    },
+    "figure6": {
+      "data": "data/figure6.npz",
+      "sha256": "540b80d9b1f5db2a3e303a5bc9adadc2d44470018152e68d26aee03137daa0af",
+      "bytes": 2199219,
+      "parameters": "data/figure6.json",
+      "parameters_sha256": "f9401d5ab3952e68f7bf74a81229395f7ffe4e64e27529b71026fbf2b7c4af52",
+      "source_inputs": [
+        "paper-data/figure-style/structured-band-three-boson.npz",
+        "paper-data/figure-style/structured-band-report.json",
+        "paper-data/structured-three-boson/provenance.json"
+      ],
+      "transformation": "Copy the exact plotted phase-space and population arrays; retain precisely the rate samples with t>=120 used by the approved renderer. No interpolation, decimation, or rescaling.",
+      "arrays": {
+        "one": {
+          "shape": [
+            1093
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "0ba109c3de1e3e2ec7a4d63ae88c7c62a1087af2ebcfa90113dfdfd443e34cfc"
+        },
+        "one_energy": {
+          "shape": [
+            1093
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "f3fd907abce24953a2595eaa68fcd3da9d9fc8175134dc939e4bc8cf87a7472e"
+        },
+        "two": {
+          "shape": [
+            2185
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "accd67e5cd1558958a89fc869c0eba794761adf2d6bebbf2c004f492a6890d47"
+        },
+        "two_energy": {
+          "shape": [
+            2185
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "bfbff7d5f91aaa9574f65018f60dcf0822672e142c8e045b66944670ae9f0491"
+        },
+        "three": {
+          "shape": [
+            3277
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "ed0f819d4ef0b79c0943860097c7481046830fe7365c1c680e8d78f42aae2306"
+        },
+        "three_energy": {
+          "shape": [
+            3277
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "32cfaa9eacc47cc85007fdda47c5c8072ea43dae67b7fa646124dd28b28138a0"
+        },
+        "density_times": {
+          "shape": [
+            70001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "39c5208c0e29897a9533a9f13b2075e88d5b3e8e9752003138f9f9430e4ba179"
+        },
+        "population_excited_tcl2": {
+          "shape": [
+            70001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "eb833295baf08b2ba87a11ad78a63bba7ac66f8129eab9ec6c8da568878c52b8"
+        },
+        "population_excited_tcl4": {
+          "shape": [
+            70001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "fd8448ddd0fbe9aa02ed16da76101b3fd0fba927c14e53aa9e22b983201d79d4"
+        },
+        "population_excited_tcl6": {
+          "shape": [
+            70001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "5ee42a6b4307e5b102f0528be85ef3d9d5621a24af44ffd895c4ebc3da42cb12"
+        },
+        "golden_rule_population": {
+          "shape": [
+            70001
+          ],
+          "dtype": "float64",
+          "nan_count": 12000,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "deb47dad1823f552a52ba3b8228cad4ae69eff2900ddc9b9227cc28d3801bb3d"
+        },
+        "rate_times": {
+          "shape": [
+            24001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "154061abb7ca27c695e433dc44f93a8236a12add921acc20ceafc514dff61cd5"
+        },
+        "rate_down_tcl2": {
+          "shape": [
+            24001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "c8cfd8a6134be3bbb82506053fad1653f0d2c6fbb6fb4e67bfb4049b1f881be5"
+        },
+        "rate_down_tcl4": {
+          "shape": [
+            24001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "ae9fe5d6a21c3a215e27afb0ecb9c35640b9d341b0ccf30e0d908cf1a64a7361"
+        },
+        "rate_down_tcl6": {
+          "shape": [
+            24001
+          ],
+          "dtype": "float64",
+          "nan_count": 0,
+          "infinity_count": 0,
+          "sha256_c_order_bytes": "d8f8b0cea75e90227ff78e959f1d79f979a9e0e18e2d24cdb4d7ea81f1f37a44"
+        }
+      }
+    }
+  }
+}
