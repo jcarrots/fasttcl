@@ -1,9 +1,7 @@
 # FastTCL
 
 FastTCL is a standalone CPU package for time-convolutionless master equations through
-sixth order. It accompanies **Fast Evaluation of the Sixth-Order
-Time-Convolutionless Master-Equation Generator and Beyond** by Jiahao Chen,
-Sirui Chen, and Dragomir Davidovic.
+sixth order. 
 
 The package provides full nonsecular TCL2, a convolution-based TCL4
 implementation, and the corrected 124-group Hadamard-reduced TCL6 evaluator.
