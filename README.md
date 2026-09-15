@@ -144,6 +144,4 @@ executes both notebooks.
 The source archive contains plotting data and examples; the smaller wheel
 contains the solver and its required generator data.
 
-Citation metadata is in [CITATION.cff](CITATION.cff). Software licensing and
-TACO formula attribution are in [LICENSE](LICENSE) and
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Citation metadata is in [CITATION.cff](CITATION.cff). Please cite the work if you used this package in your research.
