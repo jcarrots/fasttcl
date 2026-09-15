@@ -45,7 +45,7 @@ the fourth- and sixth-order corrections zero to numerical precision.
 Subprocess tests actively block TACO and CuPy imports. Lower-order tests also
 block the entire TCL6 engine to verify that TCL2/TCL4 do not depend on it.
 
-### Examples and paper data
+### Examples
 
 Both unbiased and biased short spin-boson examples run at TCL2, TCL4, and TCL6.
 The standalone timing example runs through all three orders with preparation
@@ -60,12 +60,6 @@ lambda powers of each generator correction. Callable and sampled dynamics
 agreed exactly for the custom bath example. Every saved figure was inspected.
 The notebook runner uses a fresh kernel with the same Python interpreter as
 the command, and fails on a cell error or failed assertion.
-
-All four numerical figures replot successfully from the bundled data. File
-and array hashes are checked before plotting. The payload preserves every
-plotted sample, including the intentional pre-anchor missing values in the
-structured-bath kinetic curve. Replotting does not recompute the original
-simulations. TEMPO data retain their finite-resolution interpretation.
 
 ### Tested environment
 

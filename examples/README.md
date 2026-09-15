@@ -30,6 +30,4 @@ written to the output directory. Maintainers can add `--in-place` to refresh
 the saved outputs in the source notebooks.
 
 Command-line alternatives are `spin_boson.py` for dynamics and `runtime.py`
-for a small timing run. The notebooks use short grids to demonstrate the API;
-the paper figures and their provenance are described in
-[reproduction.md](../docs/reproduction.md).
+for a small timing run. The notebooks use short grids to demonstrate the API.

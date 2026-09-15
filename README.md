@@ -56,12 +56,8 @@ assessing physical accuracy.
 ```sh
 python examples/spin_boson.py --order 6 --output-dir outputs/example
 python examples/runtime.py --max-power 9 --output outputs/runtime.csv
-python reproduce/replot.py --output-dir outputs/paper
 python -m pytest
 ```
-
-The plot command uses the supplied numerical data. It does not rerun the
-original long-time calculations or TEMPO simulations.
 
 ## Example notebooks
 
@@ -118,8 +114,7 @@ before importing data from another code.
   and a local timing experiment.
 - `tests/`: independent lower-order sums, frozen TCL6 reference data, and
   end-to-end convention/propagation checks.
-- `reproduce/`: compact accepted numerical data and portable figure scripts.
-- `docs/`: conventions, reproduction details, and the local validation report.
+- `docs/`: conventions and the local validation report.
 
 The physical setting is a finite-dimensional system with one Hermitian
 coupling to a centered, stationary Gaussian scalar bath and an initially
@@ -139,7 +134,7 @@ discretization used here.
 Run `python -m pip install -e ".[plot,test]"` for source development. The
 GitHub Actions workflow installs the package, runs its numerical tests, and
 executes both notebooks.
-The source archive contains plotting data and examples; the smaller wheel
+The source archive contains notebooks, examples, and tests; the smaller wheel
 contains the solver and its required generator data.
 
 Citation metadata is in [CITATION.cff](CITATION.cff). Please cite the work if you used this package in your research.

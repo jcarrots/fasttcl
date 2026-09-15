@@ -9,12 +9,12 @@
       "bytes": 85
     },
     ".github/workflows/tests.yml": {
-      "sha256": "a12bc13928b91610dce9e1ecc63f50cdb9d1cc4d77eece49b4e311ff0b2a732d",
-      "bytes": 843
+      "sha256": "fd4e9c7f5a431dfcc88e88e8f1f15f755cdb1652ef82ff0b908282f5f7259990",
+      "bytes": 776
     },
     ".gitignore": {
-      "sha256": "96378040e76cd6166a1b3efd47a893adc30667a4148716878d35df4e6f5d05ce",
-      "bytes": 109
+      "sha256": "c59cdd3c0be83f7d75ea5997a034f04d47df047c7e90da24b6f7dcc89faf29ff",
+      "bytes": 121
     },
     "CITATION.cff": {
       "sha256": "30c9c15e23912ca54d4b03867b05fa196b386f2cea2a54f285067cdd7952d519",
@@ -24,13 +24,9 @@
       "sha256": "c8391c9c933d131c84c4c52fc58db9805e7252ed6fac08b59100c0cb34614294",
       "bytes": 3022
     },
-    "docs/reproduction.md": {
-      "sha256": "f60ed467d43a2390e23db0ea2757dd3b96a5573a3b30227b97c0f495aa8e3bb5",
-      "bytes": 6306
-    },
     "docs/validation.md": {
-      "sha256": "c95d22b324d268b6e3b962056939ab1cd9fe811b2fbc67cd75211b8b5d54b492",
-      "bytes": 4582
+      "sha256": "5d770a500558f36351da72c17a49eb96717a722d41ca719bd6c57efc8ef81bc8",
+      "bytes": 4197
     },
     "examples/01_tcl2_tcl4_tcl6_comparison.ipynb": {
       "sha256": "806cbd7bed5a3142c72b6c5c8f93c3e71f62db87ea5e6af55120a50683616b19",
@@ -45,8 +41,8 @@
       "bytes": 3364
     },
     "examples/README.md": {
-      "sha256": "712f6d5ee7ec52d94d30d10cf11c8bba085843fbdee78d84207d269841a4039c",
-      "bytes": 1582
+      "sha256": "e3005f4083220d0758810838b8438232503637a66c6ddf3901cb3462ff21fd20",
+      "bytes": 1482
     },
     "examples/runtime.py": {
       "sha256": "2624faa1cdce832c12098a6e91c1b0d8271c603799c029285510c4bf1121ae7f",
@@ -61,60 +57,16 @@
       "bytes": 1104
     },
     "MANIFEST.in": {
-      "sha256": "d7eaed7f66804a27be13bd33e1376d054b50ebd155d9579eef90cf61a549f782",
-      "bytes": 384
+      "sha256": "50a347f7c4bf6d8687035af8ed7160e798ff9f9c65e31406dd32a73a2ce84e25",
+      "bytes": 338
     },
     "pyproject.toml": {
       "sha256": "8a704df6639e82d5e9e75bb615329c640db1a2586a53d13683c3e196e2a9ad7a",
       "bytes": 1179
     },
     "README.md": {
-      "sha256": "9471ea6e1f77417a9a5e0b2b0827ae0e8b6e95acc50bc147e6c7f31dd9a27db2",
-      "bytes": 6385
-    },
-    "reproduce/build_assets.py": {
-      "sha256": "bf65e65aa7581d60d18a1e21a2ef58e1cec3f86a022055d6d6d3535209f17c16",
-      "bytes": 17744
-    },
-    "reproduce/data/figure3.json": {
-      "sha256": "13b18206c722487c0a0008f06bcc1e8e195588a580e02d8312a31f623fa8d94e",
-      "bytes": 1574
-    },
-    "reproduce/data/figure3.npz": {
-      "sha256": "67f7e7ad969ab6d1f79fcaaa68005c6780cf93700e5b62c857af414d0a491d3e",
-      "bytes": 56333
-    },
-    "reproduce/data/figure4.json": {
-      "sha256": "8c400a0f61b7db20965870ef06628dd4e063a6b1b4779b22cf5c149760fff390",
-      "bytes": 3600
-    },
-    "reproduce/data/figure4.npz": {
-      "sha256": "dd91e99f2d6836f7e56f8800a2f92024922cf953cfba2d48dd7cf8ac4e010e6d",
-      "bytes": 4534
-    },
-    "reproduce/data/figure5.json": {
-      "sha256": "9d2a2cc9b0eb145bcd5844713c3f9959ec9ef262d1a0e5dccadaa870e87bfaef",
-      "bytes": 4258
-    },
-    "reproduce/data/figure5.npz": {
-      "sha256": "916434c1ff4dc80efe8c1fd4c65322ccebf577fc1999f68f7992a37f4de0ead6",
-      "bytes": 1960953
-    },
-    "reproduce/data/figure6.json": {
-      "sha256": "f9401d5ab3952e68f7bf74a81229395f7ffe4e64e27529b71026fbf2b7c4af52",
-      "bytes": 2405
-    },
-    "reproduce/data/figure6.npz": {
-      "sha256": "540b80d9b1f5db2a3e303a5bc9adadc2d44470018152e68d26aee03137daa0af",
-      "bytes": 2199219
-    },
-    "reproduce/provenance.json": {
-      "sha256": "f917f1d1b34304f1fb03a608bed779b5ee88c1b9f8b81ee2840a0fce7409bab2",
-      "bytes": 31537
-    },
-    "reproduce/replot.py": {
-      "sha256": "86e4fdc4a79f75f67427381a74f1a18cb693c591febb837bc92aa43b55a308a3",
-      "bytes": 13548
+      "sha256": "c55fee42f4d6f62a3155d45aba387039aedbd6695685f427ea597de8fe4459fe",
+      "bytes": 5944
     },
     "src/fasttcl/__init__.py": {
       "sha256": "98704c40164ffa6401c1a6b6d099ea718795a3217c767ad3d521a6957312ba08",
