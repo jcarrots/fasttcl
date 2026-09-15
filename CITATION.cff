@@ -1,5 +1,9 @@
 cff-version: 1.2.0
-message: "Please cite this software and the accompanying TCL6 manuscript when using these calculations."
+message: >-
+  If you use TCL4, please cite Chen et al., Benchmarking TCL4 (2025).
+  If you use TCL6, please cite both that paper and Chen, Chen, and Davidovic,
+  Fast Evaluation of the Sixth-Order Time-Convolutionless Master-Equation
+  Generator and Beyond (2026). Full references are listed in README.md.
 type: software
 title: "FastTCL: standalone TCL2, TCL4, and fast TCL6 master equations"
 version: 0.2.0
@@ -23,3 +27,21 @@ preferred-citation:
     - family-names: Davidovic
       given-names: Dragomir
   year: 2026
+references:
+  - type: article
+    title: "Benchmarking TCL4: Assessing the usability and reliability of fourth-order approximations"
+    authors:
+      - family-names: Chen
+        given-names: Jiahao
+      - family-names: Crowder
+        given-names: Elyana
+      - family-names: Xiang
+        given-names: Lian
+      - family-names: Davidovic
+        given-names: Dragomir
+    journal: APL Quantum
+    volume: "2"
+    issue: "2"
+    start: "026109"
+    year: 2025
+    doi: "10.1063/5.0255350"

@@ -91,5 +91,14 @@ both notebooks.
 
 ## Citation
 
-Please cite the work if you use FastTCL in your research. Citation metadata
-is in [CITATION.cff](CITATION.cff).
+If you use **TCL4**, please cite paper 1. If you use **TCL6**, please cite
+**both papers 1 and 2**.
+
+1. Jiahao Chen, Elyana Crowder, Lian Xiang, and Dragomir Davidovic.
+   [Benchmarking TCL4: Assessing the usability and reliability of fourth-order approximations](https://doi.org/10.1063/5.0255350).
+   *APL Quantum* **2**, 026109 (2025).
+2. Jiahao Chen, Sirui Chen, and Dragomir Davidovic.
+   *Fast Evaluation of the Sixth-Order Time-Convolutionless Master-Equation Generator and Beyond*.
+   Manuscript (2026).
+
+Citation metadata is in [CITATION.cff](CITATION.cff).
