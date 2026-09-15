@@ -73,8 +73,7 @@ The system couples through one Hermitian operator to a centered, stationary
 Gaussian scalar bath, with an initially factorized state. The examples use
 two-level systems; larger system dimensions can increase the cost substantially.
 
-Check time-step convergence for each application. A finite TCL truncation
-does not guarantee positivity or convergence with perturbative order.
+You can add more model or bath to apply it to broader open quantum system problems. 
 
 ## Testing
 
