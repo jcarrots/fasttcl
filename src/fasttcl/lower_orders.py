@@ -1,9 +1,7 @@
 """Full nonsecular TCL2 and TCL4 for a single Hermitian coupling operator.
 
-The CPU formulas follow the MIT-licensed TACO implementation (F/C/R kernels,
-MIKX contractions, and NAKZWAN assembly) and its independent MATLAB-equation
-oracle. See THIRD_PARTY_NOTICES.md for attribution. This module is an independent
-NumPy/SciPy implementation: it neither imports TACO nor loads a native extension.
+NumPy/SciPy implementation of the F/C/R kernels and tensor contractions.
+The formulas follow TACO; see THIRD_PARTY_NOTICES.md for attribution.
 
 All integrals use composite trapezoids. The returned arrays are the order-two
 and order-four *coefficients*, in the energy basis and Schrodinger picture,
@@ -19,6 +17,10 @@ from itertools import product
 
 import numpy as np
 from scipy.fft import fft, ifft, next_fast_len
+
+
+# Limit temporary tensors during generator assembly; keep every output time.
+_ASSEMBLY_CHUNK_SIZE = 8192
 
 
 def _inputs(energies, coupling, correlation, dt, max_order):
@@ -69,8 +71,8 @@ def _second_order(gamma, pairs, a):
     nt, d = gamma.shape[0], a.shape[0]
     result = np.empty((nt, d * d, d * d), dtype=np.complex128)
     eye = np.eye(d, dtype=np.complex128)
-    for start in range(0, nt, 8192):
-        stop = min(start + 8192, nt)
+    for start in range(0, nt, _ASSEMBLY_CHUNK_SIZE):
+        stop = min(start + _ASSEMBLY_CHUNK_SIZE, nt)
         # B_rc = A_rc Gamma(E_c-E_r): transpose the frequency map, not Gamma*.
         b = a * gamma[start:stop, pairs.T]
         ab = np.einsum("na,tai->tni", a, b)
@@ -202,8 +204,8 @@ def lower_order_generators(
         for row, col, coefficient in weights:
             fourth[:, row, col] += coefficient * curve
     permutation = np.arange(d*d).reshape(d, d).T.ravel()
-    for start in range(0, nt, 8192):
-        block = fourth[start:start+8192]
+    for start in range(0, nt, _ASSEMBLY_CHUNK_SIZE):
+        block = fourth[start:start+_ASSEMBLY_CHUNK_SIZE]
         # Realigned H.c., not Hermitization of the superoperator matrix.
         block += block[:, permutation][:, :, permutation].conj()
     return second, fourth

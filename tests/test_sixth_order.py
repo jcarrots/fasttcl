@@ -1,16 +1,11 @@
-"""Canonical CPU-kernel parity fixtures; original Numerical is not a dependency.
+"""TCL6 regression tests against reference values from the research code.
 
-Fixtures were evaluated by the original complete physical runtime at source
-commit 041887384e8fc3bba2ea158b0b6f577bc7f208fc with its preserved local changes.
-Exact file hashes for the extracted source are in data/source-provenance.json.
 Sparse fixture: exact fusion and early support specialization. Dense fixture:
 source execution (fusion off). Both use domain completion off, NumPy, dt=.2,
 Nt=5, E=[0,1], and C(t)=.7 exp(-.3|t|)[(n+1)exp(-1.2it)+n exp(1.2it)],
 n=(exp(2.4)-1)^-1. They contain the full wrapped interaction-picture K6.
 """
-import hashlib
 import importlib.resources
-import json
 import subprocess
 import sys
 
@@ -210,15 +205,6 @@ def test_general_dimension_source_reuse_parity():
     np.testing.assert_allclose(reuse.generator, source.generator, rtol=2e-11, atol=2e-17)
     assert source.generator.shape == (4, 9, 9)
     assert np.max(np.abs(source.generator)) > 1e-8
-
-
-def test_canonical_data_are_preserved_without_legacy_runtime_files():
-    provenance = json.loads(data_dir().joinpath("source-provenance.json").read_text())
-    for name, expected in provenance["data"].items():
-        assert hashlib.sha256(data_dir().joinpath(name).read_bytes()).hexdigest() == expected
-    assert len(data_dir().joinpath("hr-v1.jsonl").read_text().splitlines()) == 124
-    assert not data_dir().joinpath("appendix-f-publication-v1.jsonl").is_file()
-    assert not data_dir().joinpath("cumulative.jsonl").is_file()
 
 
 def test_all_engine_modules_import_without_optional_runtimes():

@@ -58,7 +58,7 @@ class TCL6Plan:
 
     @property
     def report(self):
-        """Preparation settings, timings, and generator-data provenance."""
+        """Preparation settings, timings, and compiler diagnostics."""
         from copy import deepcopy
         return deepcopy(self._engine_plan.report)
 
@@ -187,7 +187,7 @@ def generator_series(model, bath, *, dt, n_steps, coupling_strength=1.0, order=6
         corrections[6] = phase[:, :, None]*np.asarray(sixth.generator)*phase.conj()[:, None, :]*float(coupling_strength)**6
         metadata["tcl6"] = sixth.report
         metadata["tcl6_preparation"] = {key: plan.report[key] for key in
-            ("source_sha256", "source_record_count", "compile_seconds", "public_fusion")}
+            ("source_record_count", "compile_seconds", "public_fusion")}
     return GeneratorSeries(times, free, corrections, model, float(coupling_strength), metadata)
 
 

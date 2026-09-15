@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Two-level models, stationary bath kernels, and Bohr-frequency sequences."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Compile TCL6 contractions for finite-dimensional systems."""
 
 from __future__ import annotations
 

@@ -1,7 +1,6 @@
 {
   "canonical_representation": {
     "data_file": "hr-v1.jsonl",
-    "definition_authority": "paper/supplement.tex",
     "derivation_source": "cc-v1.jsonl",
     "equation_labels": [
       "HR001",
@@ -13,10 +12,6 @@
     "schema_file": "hr-v1.schema.json"
   },
   "dataset": "tcl6-hr",
-  "legacy_file_aliases": {
-    "cumulative.jsonl": "cc-v1.jsonl",
-    "hadamard.jsonl": "appendix-f-publication-v1.jsonl"
-  },
   "notation": {
     "correlation_pairs_are_ordered": true,
     "density_operator": "rho",
@@ -48,7 +43,6 @@
       33,
       34
     ],
-    "pdf_sha256": "ed0ec8c2af8772699019a423f9af1be4b2e8fcf515218fa270f0aacd435e690b",
     "runtime_source_of_truth": false,
     "title": "Sixth-order time-convolutionless master equation and beyond: Late-time resummations, two types of divergences, and the limits of validity"
   },
@@ -91,33 +85,6 @@
       ],
       "wrapper_equation": "F1"
     },
-    "appendix_f_publication": {
-      "closing_equation": "F157",
-      "data_file": "appendix-f-publication-v1.jsonl",
-      "hermitian_conjugate": true,
-      "integrals": [
-        {
-          "lower": "0",
-          "upper": "t",
-          "variable": "t_a"
-        },
-        {
-          "lower": "0",
-          "upper": "t_a",
-          "variable": "t_b"
-        }
-      ],
-      "outer_commutator_left_operator": "0",
-      "publication_order_source": "Excel to LaTeX/Grouped_Split_ReducedEqns_v4.txt",
-      "purpose": "historical reproduction and comparison only",
-      "record_count": 125,
-      "runtime_source_of_truth": false,
-      "term_equations": [
-        "F32",
-        "F156"
-      ],
-      "wrapper_equation": "F31"
-    },
     "hadamard_reduced": {
       "data_file": "hr-v1.jsonl",
       "equation_labels": [
@@ -133,38 +100,6 @@
   },
   "schema_version": "1.0.0",
   "source_repository": {
-    "detected_commit": "37a411bfb9d94df920e0ace276279b856eb3c917",
-    "files": [
-      {
-        "path": "Excel to LaTeX/Automated_splits_TCL6.xlsx",
-        "sha256": "3738f46644a781789003e08c5823cc8ee869de14232e447dd7340b7b955b83ee"
-      },
-      {
-        "path": "Excel to LaTeX/Automated_splits_andHardcode_TCL6.xlsx",
-        "sha256": "3d9ce2cb895aa8b40c29a8c11fa23cc4f4e4ac6ce6a94fb9963aa017e76a00ef"
-      },
-      {
-        "path": "Excel to LaTeX/Cancellations_splits_TCL6.xlsx",
-        "sha256": "e08cf150165f6ab86cade2f5e1b590f2db89283273e050b3bed8dcceae172422"
-      },
-      {
-        "path": "Excel to LaTeX/Grouped_Split_ReducedEqns_v4.txt",
-        "sha256": "011a7e47bb1b071864bae99ead1df0ed42954085705f9233f72c2a8660eb5794"
-      },
-      {
-        "path": "Excel to LaTeX/ListofCanceledRows_aftersplits_TCL6.xlsx",
-        "sha256": "765e8924771269370f3cc134701600c8c693d083ed27da577b976b1cee02d13e"
-      },
-      {
-        "path": "Excel to LaTeX/Reduced_Nonzero_Terms_CSV.csv",
-        "sha256": "f3d7d30835e1623e4ed364140e8baca2c05ed851583ff65c16d9857b79b3b6bd"
-      },
-      {
-        "path": "TCL (no annotation).xlsx",
-        "sha256": "fe95ef7ee83dbd93ac0cd81d64dce3a46e82a44b703b23cb24045f8579fd9957"
-      }
-    ],
-    "pinned_commit": "37a411bfb9d94df920e0ace276279b856eb3c917",
     "url": "https://github.com/A-Beta-in-Iceland/TCL"
   }
 }

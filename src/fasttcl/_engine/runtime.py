@@ -1,4 +1,4 @@
-"""Small CPU-only facade over the preserved canonical HR124 kernels.
+"""Compile and evaluate the Hadamard-reduced TCL6 generator on the CPU.
 
 The bath supplies the correlation used in the coefficient calculation. No
 additional coupling constant is applied here. Output is in the system energy
@@ -10,7 +10,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from time import perf_counter
 from typing import Any
-import hashlib
 
 import numpy as np
 
@@ -41,9 +40,9 @@ def compile_hr_plan(*, data_dir: Path, model, fusion="exact",
                     resources=None):
     """Compile one model independently of the bath and time grid.
 
-    Two-level models retain the paper's exact algebraic fusion path. General
-    models retain the original dimension compiler and lossless temporal adapter.
-    Only canonical HR001--HR124 records are runtime inputs.
+    Two-level models can combine equivalent kernel products before evaluation.
+    Larger models first expand the system-index contractions. Both paths use
+    the HR001--HR124 generator records.
     """
     from .io_utils import read_jsonl
     from .hr_profile import load_hr_inventory, _validated_hr_records
@@ -101,7 +100,6 @@ def compile_hr_plan(*, data_dir: Path, model, fusion="exact",
     identities = (execution_plan.required_gamma_identities if fusion == "exact" else
                   {identity for weighted in source.cores for identity in weighted.core.kernel_identities})
     report = {"profile": "standalone-hr124-cpu-plan-v1", "source_record_count": 124,
-              "source_sha256": hashlib.sha256(data_path.read_bytes()).hexdigest(),
               "model": model.report, "fusion_selected": fusion,
               "early_model_specialization": early, "domain_completion": "off",
               "compiler": compiler_report, "execution_plan": execution_plan.report,
@@ -146,8 +144,6 @@ def evaluate_hr_plan(plan, *, nt: int, dt: float, bath, backend="numpy",
     if selected == "source":
         raw = evaluate_specialized_plan_numpy(plan.source, **kwargs)
     elif isinstance(plan.model, EnergyBasisTwoLevelModel):
-        # These are the original paper facade's CPU defaults, including its
-        # accumulation order and NumPy FFT backend.
         raw = evaluate_fused_plan_numpy(plan.execution_plan, **kwargs)
     else:
         cache_bytes = min((plan.resources.host_bytes - host_required) // 4, 64 * 1024**2)

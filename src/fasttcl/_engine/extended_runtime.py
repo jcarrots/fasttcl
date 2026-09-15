@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Compile and evaluate time integrals using cumulative sums and convolutions."""
 
 from __future__ import annotations
 

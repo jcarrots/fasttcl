@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Group equivalent scalar contractions before assigning system indices."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Evaluate interlocked time integrals by recursive FFT convolutions."""
 
 from __future__ import annotations
 

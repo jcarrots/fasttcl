@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Expand operator contractions into scalar kernel products."""
 
 from __future__ import annotations
 

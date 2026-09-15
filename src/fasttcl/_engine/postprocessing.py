@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Apply the outer commutator and Hermitian conjugate to the TCL6 terms."""
 
 from __future__ import annotations
 

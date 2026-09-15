@@ -1,5 +1,4 @@
 include LICENSE THIRD_PARTY_NOTICES.md CITATION.cff
-include RELEASE_MANIFEST.json
 include .gitignore .gitattributes .github/workflows/tests.yml
 recursive-include docs *.md
 recursive-include examples *.py *.ipynb *.md

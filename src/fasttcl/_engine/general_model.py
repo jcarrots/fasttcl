@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Energy-basis models and memory budgets for TCL6 calculations."""
 
 from __future__ import annotations
 

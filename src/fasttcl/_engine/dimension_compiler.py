@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Assign system indices to symbolic contractions for a given dimension."""
 
 from __future__ import annotations
 

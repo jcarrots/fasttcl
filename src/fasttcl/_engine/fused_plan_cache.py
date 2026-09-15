@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Identify compiled plans for cache reuse."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Expression nodes and validation for the TCL6 generator records."""
 
 from __future__ import annotations
 

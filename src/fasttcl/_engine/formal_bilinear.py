@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Expand generator expressions into noncommuting operator polynomials."""
 
 from __future__ import annotations
 

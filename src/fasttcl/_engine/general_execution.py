@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Adapt general-dimensional contractions to the temporal evaluator."""
 
 from __future__ import annotations
 

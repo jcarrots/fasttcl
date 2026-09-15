@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Combine shared kernel products and reuse their time integrals."""
 
 from __future__ import annotations
 

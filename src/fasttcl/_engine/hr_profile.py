@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Load and validate the 124 Hadamard-reduced generator groups."""
 
 from __future__ import annotations
 

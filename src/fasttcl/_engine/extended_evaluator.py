@@ -1,4 +1,4 @@
-"""CPU runtime extracted from the canonical TCL6 Numerical source; see data/source-provenance.json."""
+"""Classify scalar kernel products and count overlapping time dependencies."""
 
 from __future__ import annotations
 
