@@ -8,7 +8,7 @@ contraction, or realignment helper and require no TACO/native installation.
 import numpy as np
 import pytest
 
-from tcl6_hr.lower_orders import lower_order_generators, _fcr_curve
+from fasttcl.lower_orders import lower_order_generators, _fcr_curve
 
 def _gamma_trapezoid(
     correlation: np.ndarray, dt: float, omegas: np.ndarray
@@ -353,7 +353,7 @@ def test_unit_bath_and_unscaled_operator_give_correct_lambda_powers():
 def test_tcl2_uses_emission_mirror_and_skips_fourth_order(monkeypatch):
     def forbidden(*args, **kwargs):
         raise AssertionError("TCL4 compilation must be skipped")
-    monkeypatch.setattr("tcl6_hr.lower_orders._fourth_order_weights", forbidden)
+    monkeypatch.setattr("fasttcl.lower_orders._fourth_order_weights", forbidden)
     e = np.array([-0.5, 0.5])
     a = np.array([[0, 0.5], [0.5, 0]])
     times = 0.005*np.arange(2001)

@@ -5,8 +5,8 @@ import sys
 from pathlib import Path
 import numpy as np
 import pytest
-from tcl6_hr import OhmicBath, SampledBath, prepare_model, generator_series, solve, compile_plan
-from tcl6_hr import api
+from fasttcl import OhmicBath, SampledBath, prepare_model, generator_series, solve, compile_plan
+from fasttcl import api
 
 
 @pytest.fixture
@@ -19,10 +19,10 @@ def test_lower_orders_do_not_import_sixth_or_taco():
 import sys, importlib.abc
 class Block(importlib.abc.MetaPathFinder):
     def find_spec(self, fullname, *args):
-        if fullname == 'taco' or fullname.startswith(('taco.', 'tcl6_hr._engine', 'cupy')):
+        if fullname == 'taco' or fullname.startswith(('taco.', 'fasttcl._engine', 'cupy')):
             raise AssertionError('unexpected dependency: '+fullname)
 sys.meta_path.insert(0, Block())
-from tcl6_hr import prepare_model, OhmicBath, solve
+from fasttcl import prepare_model, OhmicBath, solve
 m=prepare_model([[0,.5],[.5,0]],[[.5,0],[0,-.5]])
 for order in (2,4):
     r=solve(m,OhmicBath(2),[[1,0],[0,0]],dt=.02,n_steps=4,order=order,coupling_strength=.1)

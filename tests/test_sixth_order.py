@@ -17,13 +17,13 @@ import sys
 import numpy as np
 import pytest
 
-from tcl6_hr._engine.runtime import compile_hr_plan, evaluate_hr_plan
-from tcl6_hr._engine.general_model import EnergyBasisModel
-from tcl6_hr._engine.spin_boson import DampedModeBath, prepare_two_level_model
+from fasttcl._engine.runtime import compile_hr_plan, evaluate_hr_plan
+from fasttcl._engine.general_model import EnergyBasisModel
+from fasttcl._engine.spin_boson import DampedModeBath, prepare_two_level_model
 
 
 def data_dir():
-    return importlib.resources.files("tcl6_hr").joinpath("data")
+    return importlib.resources.files("fasttcl").joinpath("data")
 
 
 def bath():
@@ -230,7 +230,7 @@ class RejectOptional(importlib.abc.MetaPathFinder):
         if fullname.split('.')[0] in {'taco', 'cupy', 'matplotlib', 'jsonschema'}:
             raise AssertionError('unexpected optional dependency: '+fullname)
 sys.meta_path.insert(0, RejectOptional())
-import tcl6_hr._engine as engine
+import fasttcl._engine as engine
 for entry in pkgutil.iter_modules(engine.__path__):
     importlib.import_module(engine.__name__+'.'+entry.name)
 """

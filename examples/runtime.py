@@ -4,7 +4,7 @@ import csv
 from pathlib import Path
 from time import perf_counter
 import numpy as np
-from tcl6_hr import OhmicBath, prepare_model, compile_plan, generator_series
+from fasttcl import OhmicBath, prepare_model, compile_plan, generator_series
 
 
 def main():

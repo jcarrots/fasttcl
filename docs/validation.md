@@ -1,10 +1,25 @@
-# Local validation of version 0.1.0
+# FastTCL validation
 
-Validated on Windows on 2026-09-14. This records checks performed locally.
 Current automated results for the Linux/Windows matrix and notebooks are on
-[GitHub Actions](https://github.com/jcarrots/tcl6-hr/actions).
+[GitHub Actions](https://github.com/jcarrots/fasttcl/actions).
 
-## Installation and numerical checks
+## Version 0.2.0 rename validation
+
+Validated locally on Windows on 2026-09-15 after installing the rebuilt
+`fasttcl` 0.2.0 wheel in the isolated Python 3.12 environment. The former
+`tcl6_hr` package and TACO were absent. All **56 tests passed**, and all
+**13 notebook code cells passed**. The five regenerated plots match the
+previously inspected plots exactly. Dependency checks found no broken
+requirements. The solver implementation and scientific input data are
+byte-identical to version 0.1.0 apart from the package version declaration;
+the Python namespace, distribution name, and documentation changed.
+
+## Historical validation: version 0.1.0
+
+The checks below were performed locally on Windows on 2026-09-14 for the
+former `tcl6-hr` distribution and `tcl6_hr` import. They describe version 0.1.0.
+
+### Installation and numerical checks
 
 - Built a source distribution and a platform-independent `py3-none-any` wheel.
 - Installed the wheel into an isolated Python 3.12 environment. Imports resolve
@@ -30,7 +45,7 @@ the fourth- and sixth-order corrections zero to numerical precision.
 Subprocess tests actively block TACO and CuPy imports. Lower-order tests also
 block the entire TCL6 engine to verify that TCL2/TCL4 do not depend on it.
 
-## Examples and paper data
+### Examples and paper data
 
 Both unbiased and biased short spin-boson examples run at TCL2, TCL4, and TCL6.
 The standalone timing example runs through all three orders with preparation
@@ -52,7 +67,7 @@ plotted sample, including the intentional pre-anchor missing values in the
 structured-bath kinetic curve. Replotting does not recompute the original
 simulations. TEMPO data retain their finite-resolution interpretation.
 
-## Tested environment
+### Tested environment
 
 The complete installed-wheel run used Python 3.12.14, NumPy 2.5.3,
 SciPy 1.18.1, SymPy 1.14.0, pytest 9.1.1, and Matplotlib 3.11.2.

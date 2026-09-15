@@ -2,7 +2,7 @@
 import argparse
 from pathlib import Path
 import numpy as np
-from tcl6_hr import OhmicBath, prepare_model, solve
+from fasttcl import OhmicBath, prepare_model, solve
 
 
 def main():

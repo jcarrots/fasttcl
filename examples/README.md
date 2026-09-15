@@ -1,4 +1,4 @@
-# Examples
+# FastTCL examples
 
 Install from the package repository root:
 
@@ -7,7 +7,7 @@ python -m pip install ".[notebook]"
 python -m jupyter lab examples/
 ```
 
-Choose the Python environment containing `tcl6_hr` and run the notebook from
+Choose the Python environment containing `fasttcl` and run the notebook from
 the first cell. Saved outputs also allow the notebooks to be read on GitHub.
 
 | Notebook | Contents |

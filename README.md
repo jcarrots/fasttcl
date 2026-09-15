@@ -1,6 +1,6 @@
-# TCL2, TCL4, and fast TCL6
+# FastTCL
 
-A standalone CPU package for time-convolutionless master equations through
+FastTCL is a standalone CPU package for time-convolutionless master equations through
 sixth order. It accompanies **Fast Evaluation of the Sixth-Order
 Time-Convolutionless Master-Equation Generator and Beyond** by Jiahao Chen,
 Sirui Chen, and Dragomir Davidovic.
@@ -16,21 +16,25 @@ needed.
 Use Python 3.10 or newer. Clone the repository and install the package:
 
 ```sh
-git clone https://github.com/jcarrots/tcl6-hr.git
-cd tcl6-hr
+git clone https://github.com/jcarrots/fasttcl.git
+cd fasttcl
 python -m pip install .
 # Include plotting and test tools:
 python -m pip install ".[plot,test]"
 ```
 
 Source archives and wheels are also available on the
-[GitHub releases page](https://github.com/jcarrots/tcl6-hr/releases).
+[GitHub releases page](https://github.com/jcarrots/fasttcl/releases).
+
+Version 0.2.0 renames the distribution from `tcl6-hr` to `fasttcl` and the
+Python import from `tcl6_hr` to `fasttcl`. Update existing imports to
+`from fasttcl import ...`. The earlier version 0.1.0 release remains available.
 
 ## First calculation
 
 ```python
 import numpy as np
-from tcl6_hr import OhmicBath, prepare_model, solve
+from fasttcl import OhmicBath, prepare_model, solve
 
 sx = np.array([[0, 1], [1, 0]], dtype=complex)
 sz = np.diag([1., -1.])
@@ -110,7 +114,7 @@ before importing data from another code.
 
 ## Contents and scope
 
-- `src/tcl6_hr/`: the public solver, standalone lower orders, retained CPU TCL6
+- `src/fasttcl/`: the public solver, standalone lower orders, retained CPU TCL6
   kernels, and bundled canonical generator data.
 - `examples/`: two runnable notebooks, a small order comparison script,
   and a local timing experiment.

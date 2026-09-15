@@ -5,5 +5,5 @@ recursive-include docs *.md
 recursive-include examples *.py *.ipynb *.md
 recursive-include reproduce *.py *.json *.npz
 recursive-include tests *.py
-recursive-include src/tcl6_hr/data *.json *.jsonl *.md
+recursive-include src/fasttcl/data *.json *.jsonl *.md
 global-exclude __pycache__ *.py[cod]

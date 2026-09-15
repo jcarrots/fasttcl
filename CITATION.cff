@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "Please cite this software and the accompanying TCL6 manuscript when using these calculations."
 type: software
-title: "TCL6: standalone TCL2, TCL4, and fast TCL6 master equations"
-version: 0.1.0
-repository-code: "https://github.com/jcarrots/tcl6-hr"
+title: "FastTCL: standalone TCL2, TCL4, and fast TCL6 master equations"
+version: 0.2.0
+repository-code: "https://github.com/jcarrots/fasttcl"
 authors:
   - family-names: Chen
     given-names: Jiahao

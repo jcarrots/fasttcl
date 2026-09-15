@@ -6,7 +6,7 @@ from .api import (
 )
 from .baths import OhmicBath, SampledBath
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = [
     "GeneratorSeries", "Model", "Solution", "TCL6Plan", "compile_plan",
     "generator_series", "prepare_model", "solve", "OhmicBath", "SampledBath",

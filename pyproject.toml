@@ -3,9 +3,9 @@ requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tcl6-hr"
-version = "0.1.0"
-description = "Standalone CPU TCL2, TCL4, and fast Hadamard-reduced TCL6 master equations"
+name = "fasttcl"
+version = "0.2.0"
+description = "FastTCL: standalone CPU TCL2, TCL4, and fast Hadamard-reduced TCL6 master equations"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -24,14 +24,15 @@ test = ["pytest>=7"]
 notebook = ["jupyterlab>=4", "nbclient>=0.8", "nbformat>=5.9", "ipykernel>=6", "matplotlib>=3.7"]
 
 [project.urls]
-Repository = "https://github.com/jcarrots/tcl6-hr"
-Issues = "https://github.com/jcarrots/tcl6-hr/issues"
+Repository = "https://github.com/jcarrots/fasttcl"
+Issues = "https://github.com/jcarrots/fasttcl/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["fasttcl*"]
 
 [tool.setuptools.package-data]
-tcl6_hr = ["data/*.json", "data/*.jsonl", "data/*.md"]
+fasttcl = ["data/*.json", "data/*.jsonl", "data/*.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
