@@ -1,7 +1,7 @@
 # FastTCL
 
 FastTCL is a CPU package for time-convolutionless master equations through
-sixth order. It provides nonsecular TCL2, convolution-based TCL4, and
+sixth order. It provides nonsecular TCL2, TCL4, and
 Hadamard-reduced TCL6 for a finite-dimensional system coupled to a Gaussian
 bath. TCL2 and TCL4 use NumPy and SciPy; TCL6 preparation also uses SymPy.
 
