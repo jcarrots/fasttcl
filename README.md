@@ -1,9 +1,12 @@
 # FastTCL
 
-FastTCL is a CPU package for time-convolutionless master equations through
-sixth order. It provides nonsecular TCL2, TCL4, and
-Hadamard-reduced TCL6 for a finite-dimensional system coupled to a Gaussian
-bath. TCL2 and TCL4 use NumPy and SciPy; TCL6 preparation also uses SymPy.
+FastTCL provides fast TCL2, TCL4, and TCL6 solvers for non-Markovian open quantum systems using time-convolutionless master equations.
+
+**Paper:** [Fast Evaluation of the Sixth-Order Time-Convolutionless Master-Equation Generator and Beyond](https://arxiv.org/abs/2609.18806) — arXiv:2609.18806 (2026).
+
+This CPU package provides nonsecular TCL2, TCL4, and Hadamard-reduced TCL6
+for a finite-dimensional system coupled to a Gaussian bath. TCL2 and TCL4
+use NumPy and SciPy; TCL6 preparation also uses SymPy.
 
 ## Installation
 
@@ -97,7 +100,7 @@ If you use **TCL4**, please cite paper 1. If you use **TCL6**, please cite
    [Benchmarking TCL4: Assessing the usability and reliability of fourth-order approximations](https://doi.org/10.1063/5.0255350).
    *APL Quantum* **2**, 026109 (2025).
 2. Jiahao Chen, Sirui Chen, and Dragomir Davidovic.
-   *Fast Evaluation of the Sixth-Order Time-Convolutionless Master-Equation Generator and Beyond*.
-   Manuscript (2026).
+   [Fast Evaluation of the Sixth-Order Time-Convolutionless Master-Equation Generator and Beyond](https://arxiv.org/abs/2609.18806).
+   arXiv:2609.18806 [quant-ph] (2026).
 
 Citation metadata is in [CITATION.cff](CITATION.cff).

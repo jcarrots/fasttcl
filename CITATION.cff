@@ -27,6 +27,8 @@ preferred-citation:
     - family-names: Davidovic
       given-names: Dragomir
   year: 2026
+  url: "https://arxiv.org/abs/2609.18806"
+  doi: "10.48550/arXiv.2609.18806"
 references:
   - type: article
     title: "Benchmarking TCL4: Assessing the usability and reliability of fourth-order approximations"
