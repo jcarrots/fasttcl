@@ -5,7 +5,20 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fasttcl"
 version = "0.2.0"
-description = "FastTCL: standalone CPU TCL2, TCL4, and fast Hadamard-reduced TCL6 master equations"
+description = "Fast TCL2/TCL4/TCL6 solvers for non-Markovian open quantum systems."
+keywords = [
+  "open quantum systems",
+  "non-Markovian dynamics",
+  "quantum dynamics",
+  "master equations",
+  "time-convolutionless",
+  "TCL",
+  "TCL2",
+  "TCL4",
+  "TCL6",
+  "spin-boson",
+  "numerical methods",
+]
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -26,6 +39,7 @@ notebook = ["jupyterlab>=4", "nbclient>=0.8", "nbformat>=5.9", "ipykernel>=6", "
 [project.urls]
 Repository = "https://github.com/jcarrots/fasttcl"
 Issues = "https://github.com/jcarrots/fasttcl/issues"
+Paper = "https://arxiv.org/abs/2609.18806"
 
 [tool.setuptools.packages.find]
 where = ["src"]
