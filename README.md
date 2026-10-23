@@ -59,12 +59,32 @@ operator, call `plan = compile_plan(model)` once and pass `plan=plan` to
 `generator_series` returns separate corrections and cumulative generators
 without propagating a state.
 
+## Bath choices
+
+All bath objects work with the same `solve` and `generator_series` calls.
+
+| Bath | Use |
+| --- | --- |
+| `OhmicBath` | Ohmic continuum with exponential cutoff, at zero or finite temperature. |
+| `PowerLawBath` | Sub-Ohmic and super-Ohmic continua with exponential cutoff. |
+| `BrownianBath` | A broadened oscillator resonance with the full thermal spectrum. |
+| `DrudeLorentzBath` | Drude-Lorentz spectrum with an explicit, required extra UV cutoff. |
+| `DiscreteBath` | A set of thermal harmonic oscillator modes. |
+| `ExponentialBath` | A supplied finite exponential correlation expansion. |
+| `SpectralDensityBath` | A custom positive-frequency spectral density and temperature. |
+| `SampledBath` | Correlation values already evaluated on a uniform time grid. |
+
+See [bath definitions and examples](docs/baths.md) for constructors, spectral
+normalization, quadrature controls, and the Drude-Lorentz cutoff convention.
+
 ## Examples
 
 - [TCL2, TCL4, and TCL6 comparison](examples/01_tcl2_tcl4_tcl6_comparison.ipynb):
   unbiased and biased spin-boson dynamics and a time-step check.
 - [Custom baths and generators](examples/02_custom_bath_and_generators.ipynb):
   callable and sampled correlations, generator contributions, and plan reuse.
+- [Bath catalogue](examples/bath_catalog.py): built-in and custom baths through
+  the same solver interface.
 
 ```sh
 python -m pip install ".[notebook]"
@@ -79,8 +99,6 @@ are described in [examples/README.md](examples/README.md).
 The system couples through one Hermitian operator to a centered, stationary
 Gaussian scalar bath, with an initially factorized state. The examples use
 two-level systems; larger system dimensions can increase the cost substantially.
-
-You can add more model or bath to apply it to broader open quantum system problems. 
 
 ## Testing
 

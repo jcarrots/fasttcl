@@ -18,6 +18,12 @@ temperature. There is no bath coupling prefactor: use `coupling_strength`
 for lambda. Other conventions may place the factor 1/2 inside the spectral
 density. Custom correlations are used with the normalization you supply.
 
+The other built-in continua and discrete modes use the same factor `1/2`
+and separate `coupling_strength`. Their explicit spectra, including the
+required additional UV cutoff for Drude-Lorentz, are listed in the
+[bath guide](baths.md). Supplied exponential expansions and sampled
+correlations already represent `C_B(t)` and receive no extra spectral factor.
+
 `generator_series` returns energy-basis **Schrodinger-picture** arrays.
 Columns of `model.eigenvectors` are energy eigenvectors in the input basis.
 Operators use column-major vectorization: `vec(rho)[i+d*j]=rho[i,j]`.
