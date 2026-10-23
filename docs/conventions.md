@@ -7,11 +7,16 @@ is `lambda^2 C_B(t)`.
 
 `coupling_strength` means lambda; supply it separately from `A` and `C_B`.
 
-The supplied zero-temperature Ohmic bath has
-`J_B(w)=w exp(-w/omega_c)` and
-`C_B(t)=(1/2) integral_0^infinity J_B(w) exp(-i*w*t) dw`
-`=omega_c^2/[2(1+i*omega_c*t)^2]`. Other conventions may place the factor 1/2
-inside the spectral density. Custom correlations are used with the normalization you supply.
+The supplied `OhmicBath(omega_c=10.0, temperature=0.0)` has
+`J_B(w)=w exp(-w/omega_c)`. For temperature `T>0`,
+`C_B(t)=(1/2) integral_0^infinity J_B(w) [coth(w/(2*T))*cos(w*t)-i*sin(w*t)] dw`
+`=omega_c^2/[2(1+i*omega_c*t)^2] + T^2 Re trigamma(1+T/omega_c+i*T*t)`.
+Temperature is nonnegative and uses the same frequency/energy units as
+`omega_c` and `H_S`, with hbar=kB=1. The default `T=0` retains the original
+`C_B(t)=omega_c^2/[2(1+i*omega_c*t)^2]`; only the real part changes at finite
+temperature. There is no bath coupling prefactor: use `coupling_strength`
+for lambda. Other conventions may place the factor 1/2 inside the spectral
+density. Custom correlations are used with the normalization you supply.
 
 `generator_series` returns energy-basis **Schrodinger-picture** arrays.
 Columns of `model.eigenvectors` are energy eigenvectors in the input basis.

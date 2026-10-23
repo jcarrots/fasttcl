@@ -25,8 +25,12 @@ are also available:
 
 ```sh
 python examples/spin_boson.py --order 6 --output-dir outputs/example
+python examples/spin_boson.py --order 6 --temperature 0.5 --output-dir outputs/thermal
 python examples/runtime.py --max-power 9 --output outputs/runtime.csv
 ```
+
+`--temperature` defaults to zero. Positive values select a thermal Ohmic
+bath, in frequency/energy units with hbar=kB=1.
 
 The examples use short grids; check convergence when choosing parameters
 for your own calculation.

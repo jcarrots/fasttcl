@@ -49,6 +49,10 @@ the unscaled operator `A` and bath correlation `C_B`; the solver applies the
 lambda powers. See [conventions](docs/conventions.md) for spectral
 normalization, generator arrays, and time grids.
 
+`OhmicBath(omega_c=10.0, temperature=0.5)` supplies a finite-temperature
+Ohmic bath. Temperature is in frequency/energy units with hbar=kB=1;
+the default `temperature=0.0` preserves the zero-temperature correlation.
+
 For repeated TCL6 calculations with the same Hamiltonian and coupling
 operator, call `plan = compile_plan(model)` once and pass `plan=plan` to
 `solve` or `generator_series`. The bath, time grid, and lambda may change.

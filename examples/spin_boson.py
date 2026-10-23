@@ -11,13 +11,16 @@ def main():
     p.add_argument("--biased", action="store_true")
     p.add_argument("--dt", type=float, default=0.02)
     p.add_argument("--steps", type=int, default=50)
+    p.add_argument("--temperature", type=float, default=0.0,
+                   help="bath temperature in frequency/energy units (hbar=kB=1)")
     p.add_argument("--output-dir", type=Path, default=Path("outputs/example"))
     args = p.parse_args()
     sx = np.array([[0, 1], [1, 0]], dtype=complex)
     sz = np.diag([1., -1.])
     h = 0.4*sx+0.3*sz if args.biased else 0.5*sx
     model = prepare_model(h, 0.5*sz)
-    result = solve(model, OhmicBath(10), np.diag([1., 0.]),
+    bath = OhmicBath(10, temperature=args.temperature)
+    result = solve(model, bath, np.diag([1., 0.]),
                    coupling_strength=np.sqrt(0.2), dt=args.dt,
                    n_steps=args.steps, order=args.order)
     args.output_dir.mkdir(parents=True, exist_ok=True)

@@ -14,27 +14,69 @@ def _real_scalar(value, name, *, positive=False):
     return result
 
 
+def _trigamma(z):
+    """Complex trigamma for Re(z)>=1, using recurrence and an asymptotic tail.
+
+    Shifting the real part to 16 makes the first omitted Bernoulli term
+    smaller than double-precision rounding. Work is bounded independently
+    of temperature and time; no Matsubara-series cutoff is needed.
+    """
+    shifted = np.asarray(z, dtype=np.complex128).copy()
+    correction = np.zeros_like(shifted)
+    for _ in range(15):
+        mask = shifted.real < 16.0
+        if not np.any(mask):
+            break
+        inverse = np.where(mask, 1.0 / shifted, 0.0)
+        correction += inverse**2
+        shifted = shifted + mask
+    inverse = 1.0 / shifted
+    tail = inverse + 0.5 * inverse**2
+    bernoulli = (1/6, -1/30, 1/42, -1/30, 5/66, -691/2730, 7/6, -3617/510)
+    for k, coefficient in enumerate(bernoulli, start=1):
+        tail += coefficient * inverse**(2*k + 1)
+    return correction + tail
+
+
 @dataclass(frozen=True)
 class OhmicBath:
-    r"""Zero-temperature Ohmic bath: C_B(t)=wc^2/[2(1+i*wc*t)^2].
+    r"""Ohmic bath with exponential cutoff and temperature T>=0.
 
-    This corresponds to J_B(w)=w exp(-w/wc) and
-    C_B(t)=(1/2) integral_0^infinity J_B(w) exp(-i*w*t) dw.
+    With hbar=k_B=1, J_B(w)=w exp(-w/wc) and
+    C_B(t)=(1/2) integral_0^infinity J_B(w)
+           * [coth(w/(2*T))*cos(w*t)-i*sin(w*t)] dw.
+    The default T=0 gives wc^2/[2(1+i*wc*t)^2]. For T>0 the
+    thermal correction is T^2 Re trigamma(1+T/wc+i*T*t).
     Coupling strength is deliberately absent: pass lambda as
     ``coupling_strength`` to ``generator_series`` or ``solve``.
     """
     omega_c: float = 10.0
+    temperature: float = 0.0
 
     def __post_init__(self):
         object.__setattr__(self, "omega_c", _real_scalar(self.omega_c, "omega_c", positive=True))
+        temperature = _real_scalar(self.temperature, "temperature")
+        if temperature < 0:
+            raise ValueError("temperature must be nonnegative and finite")
+        object.__setattr__(self, "temperature", temperature)
 
     def correlation(self, times):
+        if np.iscomplexobj(times):
+            raise ValueError("bath times must be finite and real")
         times = np.asarray(times, dtype=float)
-        return self.omega_c**2 / (2 * (1 + 1j*self.omega_c*times)**2)
+        if not np.isfinite(times).all():
+            raise ValueError("bath times must be finite and real")
+        vacuum = self.omega_c**2 / (2 * (1 + 1j*self.omega_c*times)**2)
+        if self.temperature == 0:
+            return vacuum
+        z = 1 + self.temperature/self.omega_c + 1j*self.temperature*times
+        # Scale in two steps: T**2 can overflow even when C(t) is finite.
+        return vacuum + self.temperature * (self.temperature * _trigamma(z).real)
 
     @property
     def report(self):
-        return {"bath": "zero-temperature Ohmic", "omega_c": float(self.omega_c),
+        return {"bath": "zero-temperature Ohmic" if self.temperature == 0 else "finite-temperature Ohmic",
+                "omega_c": float(self.omega_c), "temperature": float(self.temperature),
                 "normalization": "unit C_B; spectral integral includes 1/2"}
 
 
