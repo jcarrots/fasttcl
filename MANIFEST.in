@@ -5,3 +5,4 @@ recursive-include examples *.py *.ipynb *.md
 recursive-include tests *.py
 recursive-include src/fasttcl/data *.json *.jsonl *.md
 global-exclude __pycache__ *.py[cod]
+recursive-include tests/fixtures *.json

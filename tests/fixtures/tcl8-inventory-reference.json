@@ -1,0 +1,15 @@
+{
+  "description": "Complete saved TCL8 ordered-cumulant and Hadamard inventory, canonical JSONL SHA-256 excluding schema_version.",
+  "canonicalization": "sort_keys=True, separators=(comma,colon), ensure_ascii=False, one LF after every record",
+  "order": 8,
+  "source": {
+    "records": 592,
+    "sha256": "93f6555bd8ba2cc1cbfe636d9e3696752b7cb9dff339ae2139dc2541c2c132ed",
+    "reference_file": "cc8-v1.jsonl"
+  },
+  "reduced": {
+    "records": 15948,
+    "sha256": "d02b3375f5e3555dbc68d8c58a9a90ba7401527feb079066c06e6bf0b234c2c6",
+    "reference_file": "tcl8-hr-terms-v1.jsonl"
+  }
+}

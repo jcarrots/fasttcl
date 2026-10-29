@@ -55,6 +55,23 @@ operator, call `plan = compile_plan(model)` once and pass `plan=plan` to
 `generator_series` returns separate corrections and cumulative generators
 without propagating a state.
 
+## Arbitrary-order symbolic compiler
+
+The `fasttcl.symbolic` interface constructs ordered cumulants, verifies signed
+integration domains, performs Hadamard reduction, and separates system
+coefficients from reduced time integrals at any positive even order `2N`.
+
+```sh
+python -m fasttcl.symbolic --order 4 --dimension 2 --output generated/tcl4-symbolic-v1
+python -m fasttcl.symbolic --order 10 --estimate
+```
+
+The output consists of exact symbolic JSON records and a verification manifest.
+Full source generation grows combinatorially with order. Numerical solvers
+remain available through TCL6; arbitrary-order numerical contraction is a
+separate task. See the [compiler guide](docs/arbitrary-order-symbolic-compiler.md)
+for the Python API, output files, and validation scope.
+
 ## Examples
 
 - [TCL2, TCL4, and TCL6 comparison](examples/01_tcl2_tcl4_tcl6_comparison.ipynb):

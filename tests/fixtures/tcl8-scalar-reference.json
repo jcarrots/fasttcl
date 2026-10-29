@@ -1,0 +1,30 @@
+{
+  "description": "Frozen digests from the prior two-level TCL8 scalarizer for the first source group; coupling amplitudes factored out.",
+  "correlations": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      5,
+      7
+    ]
+  ],
+  "source": {
+    "records": 1264,
+    "sha256": "ce0e9b121c25c6664cf3de92cd1a547f499a719a3fdac22cf2181f11fa197b71"
+  },
+  "outer_raw": {
+    "records": 2528,
+    "sha256": "e629bc901a55384693852382785abe267f45ce3cc9af01ef33784d1d24f28c9c"
+  },
+  "canonicalization": "Sorted [signature, coefficient] records as compact JSON, ensure_ascii=False, no trailing newline."
+}
